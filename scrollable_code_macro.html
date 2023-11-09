@@ -2,54 +2,54 @@
     .custom-html-block {
       max-height: 50vh;
       overflow-y: auto;
-      background-color: black;
+      background-color: #182F7C;
       padding: 10px;
       color: white;
       font-family: monospace;
       position: relative;
+      border-radius: 5px;
     }
   
     .custom-html-block code {
       display: block;
       white-space: pre;
-    }
-  
-    .custom-html-block code::before,
-    .custom-html-block code::after {
-      content: '\00a0';
-    }
-  
-    .custom-html-block code {
       color: #f8f8f2;
-      background-color: #272822;
+      background-color: #182F7C;
       padding: 0.5em;
-      border-radius: 4px;
+      border-radius: 5px;
     }
   
     .custom-html-block code.language-json {
       color: #f8f8f2;
-      background-color: #272822;
     }
   
-    .copy-button {
+    .copy-code-button {
       position: absolute;
       top: 10px;
       right: 10px;
-      background-color: #555;
+      background-color: #007bff;
       color: white;
       border: none;
       padding: 5px 10px;
       cursor: pointer;
-      border-radius: 4px;
+      border-radius: 5px;
     }
   
-    .copy-button.copied {
-      background-color: #32CD32; /* Green color for copied state */
+    .copy-code-button.copied {
+      background-color: #32CD32;
+    }
+  
+    .copy-success {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #32CD32;
+      font-weight: bold;
     }
   </style>
   
   <script>
-    function copyToClipboard() {
+    function copyCodeToClipboard() { /* Renamed function to copyCodeToClipboard */
       const codeElement = document.querySelector('.custom-html-block code');
       const textToCopy = codeElement.innerText;
   
@@ -61,7 +61,7 @@
       document.body.removeChild(textarea);
   
       // Update button text and style
-      const copyButton = document.querySelector('.copy-button');
+      const copyButton = document.querySelector('.copy-code-button');
       copyButton.innerText = 'Copied!';
       copyButton.classList.add('copied');
   
@@ -74,7 +74,7 @@
   </script>
   
   <div class="custom-html-block">
-    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+    <button class="copy-code-button" onclick="copyCodeToClipboard()">Copy</button>
     <code class="language-json">
       {
         "key": "value",
