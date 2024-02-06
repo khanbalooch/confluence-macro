@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flippable Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light background color for body */
+            color: #2c3e50; /* Text color for body */
+        }
+
+        .profile-card {
+            width: 250px;
+            height: 300px;
+            border-radius: 15px;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .profile-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .front {
+            background:#fff;
+            color: rgba(44, 62, 80, 0.8);
+            text-align: center;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 30%; /* Changed to 30% */
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+        }
+
+        .user-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-top: 40px;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .user-details {
+            text-align: center;
+            margin-top: 10px;
+        }
+		
+        .user-name {
+			margin-bottom: 10px;
+		}
+		.designation, .description {
+            margin: 10px 5px;
+        }
+
+        .user-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .back {
+            background-color: #02212e; /* #fff; White background color for the back side */
+            color: #fff;  /* #2c3e50; Dark font color */
+            transform: rotateY(180deg);
+        }
+
+        .contact-info, .company-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="card-inner">
+            <!-- Front side -->
+            <div class="front">
+                <img src="background.jpg" alt="Background" class="background-image">
+                <img src="user-picture.jpg" alt="User" class="user-picture">
+                <div class="user-details">
+                    <div class="user-name">Muhammad Ibrahim</div>
+                    <div class="designation">Software Engineer</div>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back side -->
+            <div class="back">
+                
+				
+                <!--<div class="contact-info">
+                    <i>&#9993;</i> john.doe@example.com <br>
+                    <i>&#9990;</i> +1 234 567 890
+                </div>-->
+				
+				
+				<table>
+					<tbody>
+						<tr>
+							<td>&#9993;</td>
+							<td>john.doe@example.com</td>
+						</tr>
+						<tr>
+							<td>&#9990;</td>
+							<td>+1 234 567 890</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				<div class="company-info">
+                    Emirates NBD | Leap Squad
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
